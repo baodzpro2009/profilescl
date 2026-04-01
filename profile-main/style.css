@@ -1,0 +1,357 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body{
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ================= VIDEO BACKGROUND ================= */
+.bg-video{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-2;
+}
+.bg-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  z-index:-1;
+}
+
+/* ================= PROFILE CARD ================= */
+.profile{
+  max-width:420px;
+  margin:40px auto;
+  background:#ffffffd6;
+  border-radius:25px;
+  box-shadow:0 0 20px rgba(0,0,0,.5);
+  overflow:hidden;
+  text-align:center;
+  padding-bottom:20px;
+}
+
+.avatar img{
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  border:5px solid #1877f2;
+  object-fit:cover;
+  margin-top:25px;
+}
+
+.name{
+  font-size:28px;
+  font-weight:600;
+  margin-top:10px;
+}
+
+/* ================= BIO ================= */
+.bio span{
+  display:flex;
+  align-items:center;
+  justify-content:center; /* icon + chữ nằm giữa */
+  gap:8px;
+  font-size:17px;
+  font-weight:650;
+  color:#222;
+}
+/* ================= LOCATION + TOOLTIP ================= */
+.location{
+  position: relative;
+  cursor: pointer;
+  color: #00ffe1;
+  transition: .3s;
+}
+
+.location:hover{
+  color: #fff;
+}
+
+/* Tooltip */
+.tooltip{
+  position: absolute;
+  bottom: 140%;
+  left: 50%;
+  transform: translateX(-50%) scale(.9);
+  background: rgba(0,0,0,.85);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: .25s;
+  box-shadow: 0 0 10px rgba(0,0,0,.4);
+}
+
+/* Mũi tên */
+.tooltip::after{
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(0,0,0,.85) transparent transparent transparent;
+}
+
+/* Hover hiện */
+.location:hover .tooltip{
+  opacity: 1;
+  transform: translateX(-50%) scale(1) translateY(-3px);
+}
+
+/* ================= LINKS ================= */
+.box{
+  width:85%;
+  margin:12px auto;
+  padding:14px;
+  border-radius:20px;
+  color:#fff;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  font-size:18px;
+  transition:.3s;
+}
+.box:hover{transform:scale(1.05)}
+.box i{font-size:26px}
+
+.facebook{background:#1877f2}
+.tiktok{background:#000}
+.zalo{background:#0064f7}
+.mbbank{background:#1f00cf}
+
+/* ================= SPOTIFY MINI ================= */
+.spotify{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:360px;
+  background:#181818;
+  color:#fff;
+  border-radius:20px;
+  padding:18px;
+  box-shadow:0 0 30px rgba(0,0,0,.6);
+  z-index:999;
+  cursor:grab;
+  user-select:none;
+}
+.spotify:active{cursor:grabbing}
+
+.song-title{
+  font-size:18px;
+  font-weight:600;
+}
+.song-artist{
+  font-size:13px;
+  color:#aaa;
+}
+
+.progress{
+  width:100%;
+  height:6px;
+  background:#333;
+  border-radius:10px;
+  cursor:pointer;
+  margin:10px 0 4px;
+}
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:#1db954;
+  border-radius:10px;
+}
+
+.time{
+  display:flex;
+  justify-content:space-between;
+  font-size:12px;
+  color:#aaa;
+}
+
+.controls{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:22px;
+  margin-top:10px;
+}
+.controls i{
+  font-size:20px;
+  cursor:pointer;
+  color:#aaa;
+}
+.controls i:hover{color:#fff}
+
+.play{
+  background:#1db954;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#000;
+  font-size:22px;
+}
+/* ================= SOUNDCLOUD SEARCH ================= */
+.scl-search {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 380px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  overflow: hidden;
+  z-index: 1000;
+  font-family: Inter, system-ui, sans-serif;
+  transition: all 0.3s;
+}
+
+.scl-header {
+  background: #ff7700;
+  color: white;
+  padding: 14px 18px;
+  font-size: 17px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.scl-header i {
+  font-size: 24px;
+}
+
+.scl-input-container {
+  padding: 15px;
+  display: flex;
+  gap: 8px;
+  background: #f8f9fa;
+}
+
+.scl-input-container input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.scl-input-container input:focus {
+  border-color: #ff7700;
+  box-shadow: 0 0 0 3px rgba(255,119,0,0.15);
+}
+
+.scl-input-container button {
+  width: 50px;
+  height: 48px;
+  background: #ff7700;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.scl-input-container button:hover {
+  background: #e66a00;
+  transform: scale(1.05);
+}
+
+.scl-results {
+  max-height: 420px;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.scl-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  margin: 6px 0;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.scl-item:hover {
+  transform: translateX(4px);
+  background: #fff9f0;
+}
+
+.scl-thumb {
+  width: 55px;
+  height: 55px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.scl-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.scl-title {
+  font-weight: 600;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #222;
+}
+
+.scl-artist {
+  font-size: 13px;
+  color: #666;
+}
+
+.scl-duration {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+/* Scrollbar đẹp */
+.scl-results::-webkit-scrollbar {
+  width: 6px;
+}
+.scl-results::-webkit-scrollbar-thumb {
+  background: #ff7700;
+  border-radius: 10px;
+}
+
+/* Mobile */
+@media(max-width: 480px) {
+  .scl-search {
+    width: 92%;
+    bottom: 15px;
+    right: 4%;
+  }
+}
+/* ================= MOBILE ================= */
+@media(max-width:480px){
+  .spotify{width:92%}
+  .bio span{font-size:16px}
+}
